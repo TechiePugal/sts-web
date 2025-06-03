@@ -77,8 +77,32 @@ const QuotePage: React.FC = () => {
 
   return (
     <main>
+          <section className="relative py-24 bg-gray-800 text-white">
+        <div
+          className="absolute inset-0 bg-black opacity-110 z-100"
+          style={{
+            backgroundImage: 'url(https://www.srdiecasting.in/wp-content/uploads/2019/07/sliderpic6.jpg)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            mixBlendMode: 'overlay',
+          }}
+        />
+        <div className="container mx-auto px-4 relative z-10 ml-4 md:ml-20 mt-10">
+          <div className="max-w-3xl pl-2 md:pl-0">
+            <h1 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">
+        Request a Quote
+            </h1>
+            <div className="w-20 h-1 bg-accent-600 rounded-full mb-6" />
+            <p className="text-lg md:text-xl text-gray-200 max-w-xl">
+      
+              Select your required components and get a customized quote tailored to your needs.            </p>
+          </div>
+        </div>
+      </section>
+
+
       {/* Hero Section */}
-      <section className="relative py-24 bg-gray-800 text-white">
+      {/* <section className="relative py-24 bg-gray-800 text-white">
 <div 
         className="absolute inset-0 bg-black/50 z-100"
         style={{
@@ -97,7 +121,7 @@ const QuotePage: React.FC = () => {
             </p>
           </div>
         </div>
-      </section>
+      </section> */}
 
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">

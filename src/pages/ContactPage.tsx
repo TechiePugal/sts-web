@@ -95,7 +95,29 @@ const ContactPage: React.FC = () => {
   return (
     <main>
       {/* Hero Section */}
-      <section className="relative py-24 bg-gray-800 text-white">
+          <section className="relative py-24 bg-gray-800 text-white">
+        <div
+          className="absolute inset-0 bg-black opacity-110 z-100"
+          style={{
+            backgroundImage: 'url(https://came-italy.com/wp-content/uploads/2018/11/Came-still-life.jpg)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            mixBlendMode: 'overlay',
+          }}
+        />
+        <div className="container mx-auto px-4 relative z-10 ml-4 md:ml-20 mt-10">
+          <div className="max-w-3xl pl-2 md:pl-0">
+            <h1 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">
+            Get In Touch
+            </h1>
+            <div className="w-20 h-1 bg-accent-600 rounded-full mb-6" />
+            <p className="text-lg md:text-xl text-gray-200 max-w-xl">
+         Have questions about our products or services? Need technical support? Our team of experts is ready to assist you with any inquiries you may have.
+            </p>
+          </div>
+        </div>
+      </section>
+      {/* <section className="relative py-24 bg-gray-800 text-white">
         <div 
         className="absolute inset-0 bg-black opacity-110 z-100"
         style={{
@@ -114,7 +136,7 @@ const ContactPage: React.FC = () => {
             </p>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Contact Information */}
       <section className="py-20 bg-white">

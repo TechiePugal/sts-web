@@ -36,7 +36,7 @@ const Header: React.FC = () => {
 
   return (
     <header className={headerClasses}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-6.5xl mx-auto px-2 sm:px-4 lg:pl-15 lg:pr-8">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex flex-col items-start">
@@ -95,35 +95,45 @@ const Header: React.FC = () => {
             )}
           </button>
         </div>
+      </div>
 
-        {/* Mobile Navigation Menu */}
+      {/* Mobile Navigation Drawer */}
+      {/* Overlay */}
+      {isMenuOpen && (
         <div
-          className={`md:hidden transition-all duration-300 overflow-hidden ${
-            isMenuOpen ? 'max-h-96 mt-4' : 'max-h-0'
-          }`}
-        >
-          <nav className="flex flex-col space-y-4 py-2">
-            {navLinks.map((link) => (
-              <Link
-                key={link.path}
-                to={link.path}
-                className={`text-base font-medium px-3 py-2 rounded-md ${
-                  location.pathname === link.path
-                    ? 'bg-primary-50 text-primary-700 font-semibold'
-                    : 'text-gray-800 hover:bg-gray-100'
-                }`}
-              >
-                {link.name}
-              </Link>
-            ))}
+          onClick={() => setIsMenuOpen(false)}
+          className="fixed inset-0 bg-black bg-opacity-40 z-40 md:hidden"
+        />
+      )}
+
+      <div
+        className={`fixed top-0 right-0 h-full w-64 bg-white/90 backdrop-blur-md shadow-lg z-50 transform transition-transform duration-300 md:hidden ${
+          isMenuOpen ? 'translate-x-0' : 'translate-x-full'
+        }`}
+      >
+        <nav className="flex flex-col space-y-4 p-6 pt-20">
+          {navLinks.map((link) => (
             <Link
-              to="/quote"
-              className="px-4 py-2 bg-gradient-to-r from-primary-600 to-primary-700 text-white text-center rounded-md font-medium hover:brightness-110"
+              key={link.path}
+              to={link.path}
+              className={`text-base font-medium px-3 py-2 rounded-md ${
+                location.pathname === link.path
+                  ? 'bg-primary-50 text-primary-700 font-semibold'
+                  : 'text-gray-800 hover:bg-gray-100'
+              }`}
+              onClick={() => setIsMenuOpen(false)}
             >
-              Get a Quote
+              {link.name}
             </Link>
-          </nav>
-        </div>
+          ))}
+          <Link
+            to="/quote"
+            className="mt-4 px-4 py-2 bg-gradient-to-r from-primary-600 to-primary-700 text-white text-center rounded-md font-medium hover:brightness-110"
+            onClick={() => setIsMenuOpen(false)}
+          >
+            Get a Quote
+          </Link>
+        </nav>
       </div>
     </header>
   );

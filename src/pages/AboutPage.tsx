@@ -17,7 +17,8 @@ const AboutPage: React.FC = () => {
       metaDescription.setAttribute('name', 'description');
       document.head.appendChild(metaDescription);
     }
-    metaDescription.setAttribute('content', 
+    metaDescription.setAttribute(
+      'content', 
       'Discover our journey as a leading textile machinery spare parts manufacturer, committed to quality, innovation, and customer satisfaction.'
     );
   }, []);
@@ -55,20 +56,22 @@ const AboutPage: React.FC = () => {
     <main>
       {/* Hero Section */}
       <section className="relative py-24 bg-gray-800 text-white">
-          <div 
-        className="absolute inset-0 bg-black opacity-110 z-100"
-        style={{
-          backgroundImage: 'url(https://www.supergroupscbe.com/images/super-groups-about.jpg)',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          mixBlendMode: 'overlay'
-        }}
-      />
-        <div className="container mx-auto px-4 relative ml-20 mt-10 z-10">
-          <div className="max-w-3xl">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">Our Legacy in Textile Machinery Manufacturing</h1>
+        <div
+          className="absolute inset-0 bg-black opacity-110 z-100"
+          style={{
+            backgroundImage: 'url(https://www.supergroupscbe.com/images/super-groups-about.jpg)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            mixBlendMode: 'overlay',
+          }}
+        />
+        <div className="container mx-auto px-4 relative z-10 ml-4 md:ml-20 mt-10">
+          <div className="max-w-3xl pl-2 md:pl-0">
+            <h1 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">
+              Our Legacy in Textile Machinery Manufacturing
+            </h1>
             <div className="w-20 h-1 bg-accent-600 rounded-full mb-6" />
-            <p className="text-xl text-gray-200">
+            <p className="text-lg md:text-xl text-gray-200 max-w-xl">
               Founded in 1984 in Coimbatore, Tamil Nadu, Super Textile Services has grown from a small workshop to a global enterprise.
             </p>
           </div>
@@ -79,23 +82,23 @@ const AboutPage: React.FC = () => {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
+            <div className="pl-2 md:pl-0 max-w-4xl">
               <SectionTitle
                 title="Our Story"
                 subtitle="From humble beginnings to global excellence"
               />
               <div className="space-y-4 text-gray-700">
-                <p>
+                <p className="max-w-xl">
                   Super Textile Services was established in 1984 as a small workshop in Coimbatore, the textile hub of South India. What began as a modest operation focused on producing essential textile machinery components has now evolved into a global enterprise known for precision-engineered textile machinery spare parts.
                 </p>
-                <p>
+                <p className="max-w-xl">
                   Our journey has been marked by an unwavering commitment to quality, continuous innovation, and exceptional customer service. These core values have positioned us as a trusted partner in the textile industry, serving clients across more than 50 countries.
                 </p>
-                <p>
+                <p className="max-w-xl">
                   Today, we operate state-of-the-art manufacturing facilities equipped with advanced CNC machinery and employ a team of skilled engineers and technicians dedicated to delivering components that meet the highest standards of precision and durability.
                 </p>
               </div>
-              <div className="mt-8 space-y-4">
+              <div className="mt-8 space-y-4 max-w-xl">
                 <h3 className="text-xl font-semibold">Our Core Values</h3>
                 <ul className="space-y-2">
                   <li className="flex items-start">
@@ -152,17 +155,17 @@ const AboutPage: React.FC = () => {
               <motion.div
                 key={index}
                 variants={itemVariants}
-                className={`flex ${
-                  index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'
-                } mb-12 last:mb-0`}
+                className={`flex flex-col md:flex-row items-start md:items-center mb-12 last:mb-0 ${
+                  index % 2 === 0 ? '' : 'md:flex-row-reverse'
+                }`}
               >
-                <div className="w-1/2 px-4">
+                <div className="w-full md:w-1/2 px-0 md:px-4 mb-6 md:mb-0">
                   <div
                     className={`bg-white p-6 rounded-lg shadow-md ${
                       index % 2 === 0
                         ? 'rounded-tr-none'
                         : 'rounded-tl-none'
-                    }`}
+                    } max-w-md mx-auto`}
                   >
                     <span className="text-sm font-semibold text-primary-600">
                       {item.year}
@@ -173,11 +176,11 @@ const AboutPage: React.FC = () => {
                     <p className="text-gray-600">{item.description}</p>
                   </div>
                 </div>
-                <div className="flex flex-col items-center w-0">
+                <div className="flex flex-col items-center w-6 md:w-0">
                   <div className="w-4 h-4 rounded-full bg-primary-600 z-10" />
-                  <div className="w-0.5 bg-primary-200 h-full" />
+                  <div className="w-0.5 bg-primary-200 flex-grow" />
                 </div>
-                <div className="w-1/2" />
+                <div className="w-full md:w-1/2" />
               </motion.div>
             ))}
           </motion.div>
@@ -198,12 +201,12 @@ const AboutPage: React.FC = () => {
             initial="hidden"
             animate={teamInView ? 'visible' : 'hidden'}
             variants={containerVariants}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-12"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-12"
           >
             {team.map((member) => (
               <motion.div key={member.id} variants={itemVariants}>
                 <Card hover>
-                  <div className="aspect-w-1 aspect-h-1 overflow-hidden">
+                  <div className="aspect-w-1 aspect-h-1 overflow-hidden rounded-t-lg">
                     <img
                       src={member.imageUrl}
                       alt={member.name}

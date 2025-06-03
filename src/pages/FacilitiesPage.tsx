@@ -61,8 +61,32 @@ const FacilitiesPage: React.FC = () => {
 
   return (
     <main>
-      {/* Hero Section */}
       <section className="relative py-24 bg-gray-800 text-white">
+        <div
+          className="absolute inset-0 bg-black opacity-110 z-100"
+          style={{
+            backgroundImage: 'url(https://www.godfreyphillips.co.in/public/storage/images/cutting-edge.jpg)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            mixBlendMode: 'overlay',
+          }}
+        />
+        <div className="container mx-auto px-4 relative z-10 ml-4 md:ml-20 mt-10">
+          <div className="max-w-3xl pl-2 md:pl-0">
+            <h1 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">
+           Our World-Class Facilities
+            </h1>
+            <div className="w-20 h-1 bg-accent-600 rounded-full mb-6" />
+            <p className="text-lg md:text-xl text-gray-200 max-w-xl">
+              Discover our state-of-the-art manufacturing facilities equipped with advanced machinery
+              and stringent quality control systems.          </p>
+          </div>
+        </div>
+      </section>
+
+
+      {/* Hero Section */}
+      {/* <section className="relative py-24 bg-gray-800 text-white">
         <div 
         className="absolute inset-0 bg-black opacity-110 z-100"
         style={{
@@ -82,7 +106,7 @@ const FacilitiesPage: React.FC = () => {
             </p>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Overview Section */}
       <section className="py-20 bg-white">
