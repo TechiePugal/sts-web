@@ -18,6 +18,14 @@ import {
 } from 'lucide-react';
 import { contactInfo, internationalContact } from '../data/company';
 import { useForm } from 'react-hook-form';
+import { database } from '../firebase/config';
+import { push, ref } from 'firebase/database';
+
+
+
+
+
+
 
 type FormData = {
   name: string;
@@ -32,20 +40,24 @@ const ContactPage: React.FC = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isError, setIsError] = useState(false);
 
-  const { register, handleSubmit, formState: { errors }, reset } = useForm<FormData>();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm<FormData>();
 
   useEffect(() => {
-    // Update page title and meta description for SEO
     document.title = 'Contact Super Textile Services | Get in Touch';
-    
-    // Create or update meta description
+
     let metaDescription = document.querySelector('meta[name="description"]');
     if (!metaDescription) {
       metaDescription = document.createElement('meta');
       metaDescription.setAttribute('name', 'description');
       document.head.appendChild(metaDescription);
     }
-    metaDescription.setAttribute('content', 
+    metaDescription.setAttribute(
+      'content',
       'Reach out to us for inquiries, support, or custom requirements. Our team is here to assist you with all your textile machinery needs.'
     );
   }, []);
@@ -55,31 +67,11 @@ const ContactPage: React.FC = () => {
     threshold: 0.1,
   });
 
-  const onSubmit = (data: FormData) => {
-    console.log(data);
-    // Simulate form submission
-    try {
-      // Here you would normally send the data to a server
-      setIsSubmitted(true);
-      setIsError(false);
-      reset();
-      // Reset form after 5 seconds
-      setTimeout(() => {
-        setIsSubmitted(false);
-      }, 5000);
-    } catch (error) {
-      setIsError(true);
-      setIsSubmitted(false);
-    }
-  };
-
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
+      transition: { staggerChildren: 0.1 },
     },
   };
 
@@ -91,6 +83,47 @@ const ContactPage: React.FC = () => {
       transition: { duration: 0.5, ease: 'easeOut' },
     },
   };
+
+  const onSubmit = async (data: FormData) => {
+    try {
+      const contactRef = ref(database, 'contacts');
+      await push(contactRef, data);
+      setIsSubmitted(true);
+      setIsError(false);
+      reset();
+      setTimeout(() => setIsSubmitted(false), 5000);
+    } catch (error) {
+      console.error('Firebase submission error:', error);
+      setIsError(true);
+      setIsSubmitted(false);
+    }
+  };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+type FormData = {
+  name: string;
+  email: string;
+  phone: string;
+  company?: string;
+  inquiryType: string;
+  message: string;
+};
+
+
 
   return (
     <main>

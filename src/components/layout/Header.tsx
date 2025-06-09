@@ -41,9 +41,9 @@ const Header: React.FC = () => {
           {/* Logo */}
           <Link to="/" className="flex flex-col items-start">
             <div className="text-3xl font-extrabold leading-tight tracking-wide">
-              <span className="text-green-500">Super</span>{' '}
+              <span className="text-blue-600">Super</span>{' '}
               <span className="text-red-500">Textile</span>{' '}
-              <span className="text-green-500">Service</span>
+              <span className="text-blue-600">Service</span>
             </div>
             <span className="text-sm text-gray-500 font-bold mt-0.5 tracking-wide">
               (A Unit of Super Group of Companies)

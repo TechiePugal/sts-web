@@ -1,20 +1,19 @@
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
+// src/firebase.ts
+import { initializeApp } from 'firebase/app';
+import { getDatabase } from 'firebase/database';
 
-// Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyCuL2L1OeWRRMgj9HXoBX3FbTvOQ4O4w8I",
-  authDomain: "logbookapp-ca1a0.firebaseapp.com",
-  databaseURL: "https://logbookapp-ca1a0-default-rtdb.firebaseio.com",
-  projectId: "logbookapp-ca1a0",
-  storageBucket: "logbookapp-ca1a0.firebasestorage.app",
-  messagingSenderId: "764363822742",
-  appId: "1:764363822742:web:43639cef835aa15ba654b7",
-  measurementId: "G-2E27WGJH8Q"
+  apiKey: "AIzaSyArm6ZSOUZLvpeff-5OpJvuRno7zej9tEs",
+  authDomain: "sts-online-292d5.firebaseapp.com",
+  databaseURL: "https://sts-online-292d5-default-rtdb.firebaseio.com",
+  projectId: "sts-online-292d5",
+  storageBucket: "sts-online-292d5.appspot.com",
+  messagingSenderId: "770461727146",
+  appId: "1:770461727146:web:6edd4839cb724df53b93d3",
+  measurementId: "G-K017VE3P05",
 };
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+const database = getDatabase(app);
 
-export { app, analytics };
+export { database };
