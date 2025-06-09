@@ -39,16 +39,16 @@ const Header: React.FC = () => {
       <div className="max-w-6.5xl mx-auto px-2 sm:px-4 lg:pl-15 lg:pr-8">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="flex flex-col items-start">
-            <div className="text-3xl font-extrabold leading-tight tracking-wide">
-              <span className="text-blue-600">Super</span>{' '}
-              <span className="text-red-500">Textile</span>{' '}
-              <span className="text-blue-600">Service</span>
-            </div>
-            <span className="text-sm text-gray-500 font-bold mt-0.5 tracking-wide">
-              (A Unit of Super Group of Companies)
-            </span>
-          </Link>
+<Link to="/" className="flex flex-col ml-4 md:ml-24 items-start">
+  <div className="text-xl sm:text-2xl md:text-3xl font-extrabold leading-tight tracking-wide">
+    <span className="text-blue-600">Super</span>{' '}
+    <span className="text-red-500">Textile</span>{' '}
+    <span className="text-blue-600">Service</span>
+  </div>
+  <span className="text-xs sm:text-sm text-gray-500 font-bold mt-0.5 tracking-wide">
+    (A Unit of Super Group of Companies)
+  </span>
+</Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
